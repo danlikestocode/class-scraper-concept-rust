@@ -1,0 +1,9 @@
+# General
+/target
+/python
+*.log
+
+# Protecting Secrets
+.env
+.env.*local
+.env.*production

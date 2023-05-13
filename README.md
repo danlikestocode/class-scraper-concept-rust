@@ -7,3 +7,10 @@ GET requests to an API endpoint.
   
 While this project was decently successful a rewrite to GO &
 exposing a public API to check classes seems viable.
+
+### Technologies Used
+* Rust
+* Reqwest
+* Tokio
+* Prisma
+* Planetscale

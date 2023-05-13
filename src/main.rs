@@ -1,15 +1,15 @@
-use dotenv::dotenv;
+#[allow(warnings, unused)]
+mod logs;
+mod daemon;
+mod database;
 
 #[tokio::main]
 async fn main() {
-    // let url = format!(
-    //     "https://eadvs-cscc-catalog-api.apps.asu.edu/catalog-microservices/api/v1/search/classes?&refine=Y&campusOrOnlineSelection=A&catalogNbr=330&honors=F&promod=F&searchType=all&subject=CSE&term=2237"
-    // );
+    // Start Logger
+    logs::init_logger();
 
-
-    dotenv().ok();
-    let myurl = std::env::var("TURSO_DB_URL").expect("URL must be set");
-    let token = std::env::var("TURSO_DB_AUTH_TOKEN").expect("AUTH TOKEN must be set");
-
+    // Start Daemon
+    log::info!("Starting Class-Watcher Daemon...");
+    daemon::start_daemon().await;
 }
 
